@@ -1,0 +1,7 @@
+import 'dart:io';
+
+main() {
+  stdout.writeln("En azi 5 soz yazin");
+  String yazi = (stdin.readLineSync().toString());
+  print(yazi.split('').reversed.join());
+}
