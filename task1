@@ -1,0 +1,15 @@
+import 'dart:io';
+
+main() {
+  stdout.writeln("Ilk once adinizi sonra yashinizi daxil edin");
+  String name = stdin.readLineSync().toString();
+  int age = int.parse(stdin.readLineSync().toString());
+
+  if (age >= 100) {
+    print('yasiniz 100 ve ya 100den yuxari ola bilmez');
+  } else {
+    var newAge;
+    newAge = (100 - age);
+    print(" $name , $newAge ilden sonra 100 yawiniz olacaq");
+  }
+}
