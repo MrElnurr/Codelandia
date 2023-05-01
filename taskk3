@@ -1,0 +1,198 @@
+import 'dart:io';
+
+void main() {
+  stdout.writeln("Xosh geldiniz! Zehmet olmasa seciminizi edin ");
+  stdout.writeln(
+      '"1" yazaraq istifadeci girisi ekranina, "2" yazaraq qonaq kimi daxil ola bilersiz');
+  String userName = stdin.readLineSync().toString();
+  if (userName == '1') {
+    stdout.writeln('Login ekranina kecid etdiniz!');
+    loginscreen();
+  } else if (userName == '2') {
+    stdout.writeln('Qonaq kimi daxil oldunuz');
+  } else {
+    stdout.writeln('Duzgun secim edin!');
+    main();
+  }
+}
+
+void loginscreen() {
+  stdout.writeln(" Istifadeci adinizi ve parolunuzu daxil edin: ");
+  String login = stdin.readLineSync().toString();
+  String password = stdin.readLineSync().toString();
+  if (login.isEmpty) {
+    print('Istifadeci adi bosh ola bilmez');
+    loginscreen();
+  } else if (password.isEmpty) {
+    print(' Sifre bosh ola bilmez!');
+    loginscreen();
+  } else {
+    print('Hormetli $login Xosh Geldiniz!');
+    productlist();
+  }
+}
+
+void productlist() {
+  stdout.writeln(
+      'Mehsul Siyahisi : 1- RTX 4080, 2- Intel 13900k - , 3- Ryzen 5600');
+  String selectedProduct = stdin.readLineSync().toString();
+  if (selectedProduct == '1') {
+    print('Secdiyiniz mehsul: RTX 4080 \n Qiymeti: 1100 AZN ');
+    continueShopping(1100);
+  } else if (selectedProduct == '2') {
+    print('Secdiyiniz mehsul: Intel 13900k \n Qiymeti: 900 AZN ');
+    continueShopping(900);
+  } else if (selectedProduct == '3') {
+    print('Secdiyiniz mehsul: Ryzen 5600 \n Qiymeti: 700 AZN ');
+    continueShopping(700);
+  } else {
+    print(' Duzgun secim eleee!');
+  }
+}
+
+void continueShopping(int amount) {
+  stdout.writeln(
+      'Davam etmek isteyirsiz? \n 1 yazaraq davam ede, 2 yazaraq saytdan cixa bilersiz');
+  String selectedOption = stdin.readLineSync().toString();
+  if (selectedOption == '1') {
+    choosePayment(amount);
+  } else if (selectedOption == '2') {
+    print(' Saytdan cixdiniz ');
+  } else {
+    print('Duzgun secim edin!');
+    continueShopping(amount);
+  }
+}
+
+void choosePayment(int amount) {
+  stdout.writeln(
+      'Nagd odenish yoxsa Kartla odenish etmek isteyirsiniz? \n Nagd odenish etmek ucun 1, Kartla Odenish etmek ucun 2 duymesine basin');
+  String selectedPayment = stdin.readLineSync().toString();
+  if (selectedPayment == '1') {
+    stdout.writeln('Nagd odenishi secdiniz!');
+    payWithCash(amount);
+  } else if (selectedPayment == '2') {
+    stdout.writeln('Kartla odenishi secdiniz!');
+    payWithCard(amount);
+  } else {
+    print('Duzgun secim edin!');
+    choosePayment(amount);
+  }
+}
+
+void payWithCash(int amount) {
+  stdout.writeln(
+      ' Mehsul alindi! Qiymet : $amount Catdirilma ucun 1 (Elave 10 manat odenish), Yerinde alacaqsizsa 2 duymesine basin');
+  String selectedDelivering = stdin.readLineSync().toString();
+  if (selectedDelivering == '1') {
+    var newAmount = amount + 10;
+    print(' Odeyeceyiniz Mebleg: $newAmount , Teshekkurler!');
+  } else if (selectedDelivering == '2') {
+    print(' Odeyeceyiniz Mebleg: $amount, Teshekkurler!');
+  } else {
+    print('Duzgun secim edin!');
+    payWithCash(amount);
+  }
+}
+
+void payWithCard(int amount) {
+  stdout.writeln(
+      'Birbasha odemek ucun 1, Taksitle odemek ucun 2 duymesine basin');
+  String selectedPaymentMethod = stdin.readLineSync().toString();
+  if (selectedPaymentMethod == '1') {
+    directPaymentWithCard(amount);
+  } else if (selectedPaymentMethod == '2') {
+    stdout.writeln('Taksitle odenishi secdiniz!');
+    payWithCardMethod(amount);
+  } else {
+    print('Duzgun secim edin!');
+    payWithCard(amount);
+  }
+}
+
+void payWithCardMethod(int amount) {
+  stdout.writeln(
+      'Birkart ucun - 1 , Tamkart ucun - 2, Bolkart ucun - 3 duymesine basin');
+  String selectedCardType = stdin.readLineSync().toString();
+  if (selectedCardType == '1') {
+    Birkart(amount);
+  } else if (selectedCardType == '2') {
+    TamKart(amount);
+  } else if (selectedCardType == '3') {
+    BolKart(amount);
+  } else {
+    print('Duzgun secim edin!');
+    payWithCardMethod(amount);
+  }
+}
+
+void Birkart(int amount) {
+  stdout.writeln(
+      'Birkart-i secdiniz! Tam faizsiz 3, 6, 12, 18 ve 24 ayliq odenishler mumkundur. \n Seciminizi edin!');
+  String selectedBirKartMethod = stdin.readLineSync().toString();
+  if (selectedBirKartMethod == '3') {
+    var month3 = amount / 3;
+    print('Her ay ayliq odeyeceyiniz mebleg: $month3 . Teshekkurler!');
+  } else if (selectedBirKartMethod == '6') {
+    var month6 = amount / 6;
+    print('Her ay ayliq odeyeceyiniz mebleg: $month6 . Teshekkurler!');
+  } else if (selectedBirKartMethod == '12') {
+    var month12 = amount / 12;
+    print('Her ay ayliq odeyeceyiniz mebleg: $month12 . Teshekkurler!');
+  } else if (selectedBirKartMethod == '18') {
+    var month18 = amount / 18;
+    print('Her ay ayliq odeyeceyiniz mebleg: $month18 . Teshekkurler!');
+  } else if (selectedBirKartMethod == '24') {
+    var month24 = amount / 24;
+    print('Her ay ayliq odeyeceyiniz mebleg: $month24 . Teshekkurler!');
+  } else {
+    print('Duzgun secim edin!');
+    Birkart(amount);
+  }
+}
+
+void TamKart(int amount) {
+  stdout.writeln(
+      'TamKart-i secdiniz! 3 ve 6 ayliq taksitle tam faizsiz, \n 12 ayliq odenishde ise 25% mehsulun qiymetine elave olunur. \n Seciminizi edin!');
+  String selectedTamkartMethod = stdin.readLineSync().toString();
+  if (selectedTamkartMethod == '3') {
+    var month3 = amount / 3;
+    print('Her ay ayliq odeyeceyiniz mebleg: $month3 . Teshekkurler!');
+  } else if (selectedTamkartMethod == '6') {
+    var month6 = amount / 6;
+    print('Her ay ayliq odeyeceyiniz mebleg: $month6 . Teshekkurler!');
+  } else if (selectedTamkartMethod == '12') {
+    var month12 = amount * 25 / 100;
+    print('Her ay ayliq odeyeceyiniz mebleg: $month12 . Teshekkurler!');
+  } else {
+    print('Duzgun secim edin!');
+    TamKart(amount);
+  }
+}
+
+void BolKart(int amount) {
+  stdout.writeln(
+      'BolKart-i secdiniz! 3 ay secdikde tam faizsiz, 6 ay secdikde elave 60 manat teleb olunur! \n Seciminizi edin!');
+  String selectedBolkartMethod = stdin.readLineSync().toString();
+  if (selectedBolkartMethod == '3') {
+    var month3 = amount / 3;
+    print('Her ay ayliq odeyeceyiniz mebleg: $month3 . Teshekkurler!');
+  } else if (selectedBolkartMethod == '6') {
+    var month6 = ((amount + 60) / 6);
+    print('Her ay ayliq odeyeceyiniz mebleg: $month6 . Teshekkurler!');
+  } else {
+    print('Duzgun secim edin!');
+    BolKart(amount);
+  }
+}
+
+void directPaymentWithCard(amount) {
+  stdout.writeln('Kart nomrenizi daxil edin:');
+  String cardNumber = stdin.readLineSync().toString();
+  if (cardNumber.length != 16) {
+    print('Kart nomresini duzgun daxil edin!');
+    directPaymentWithCard(amount);
+  } else {
+    payWithCash(amount);
+  }
+}
