@@ -115,18 +115,18 @@ void payWithCardMethod(int amount) {
       'Birkart ucun - 1 , Tamkart ucun - 2, Bolkart ucun - 3 duymesine basin');
   String selectedCardType = stdin.readLineSync().toString();
   if (selectedCardType == '1') {
-    Birkart(amount);
+    birkart(amount);
   } else if (selectedCardType == '2') {
-    TamKart(amount);
+    tamKart(amount);
   } else if (selectedCardType == '3') {
-    BolKart(amount);
+    bolKart(amount);
   } else {
     print('Duzgun secim edin!');
     payWithCardMethod(amount);
   }
 }
 
-void Birkart(int amount) {
+void birkart(int amount) {
   stdout.writeln(
       'Birkart-i secdiniz! Tam faizsiz 3, 6, 12, 18 ve 24 ayliq odenishler mumkundur. \n Seciminizi edin!');
   String selectedBirKartMethod = stdin.readLineSync().toString();
@@ -147,11 +147,11 @@ void Birkart(int amount) {
     print('Her ay ayliq odeyeceyiniz mebleg: $month24 . Teshekkurler!');
   } else {
     print('Duzgun secim edin!');
-    Birkart(amount);
+    birkart(amount);
   }
 }
 
-void TamKart(int amount) {
+void tamKart(int amount) {
   stdout.writeln(
       'TamKart-i secdiniz! 3 ve 6 ayliq taksitle tam faizsiz, \n 12 ayliq odenishde ise 25% mehsulun qiymetine elave olunur. \n Seciminizi edin!');
   String selectedTamkartMethod = stdin.readLineSync().toString();
@@ -166,11 +166,11 @@ void TamKart(int amount) {
     print('Her ay ayliq odeyeceyiniz mebleg: $month12 . Teshekkurler!');
   } else {
     print('Duzgun secim edin!');
-    TamKart(amount);
+    tamKart(amount);
   }
 }
 
-void BolKart(int amount) {
+void bolKart(int amount) {
   stdout.writeln(
       'BolKart-i secdiniz! 3 ay secdikde tam faizsiz, 6 ay secdikde elave 60 manat teleb olunur! \n Seciminizi edin!');
   String selectedBolkartMethod = stdin.readLineSync().toString();
@@ -182,7 +182,7 @@ void BolKart(int amount) {
     print('Her ay ayliq odeyeceyiniz mebleg: $month6 . Teshekkurler!');
   } else {
     print('Duzgun secim edin!');
-    BolKart(amount);
+    bolKart(amount);
   }
 }
 
