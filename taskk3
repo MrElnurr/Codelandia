@@ -186,7 +186,7 @@ void BolKart(int amount) {
   }
 }
 
-void directPaymentWithCard(amount) {
+void directPaymentWithCard(int amount) {
   stdout.writeln('Kart nomrenizi daxil edin:');
   String cardNumber = stdin.readLineSync().toString();
   if (cardNumber.length != 16) {
