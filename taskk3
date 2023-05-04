@@ -10,6 +10,7 @@ void main() {
     loginscreen();
   } else if (userName == '2') {
     stdout.writeln('Qonaq kimi daxil oldunuz');
+    productlist();
   } else {
     stdout.writeln('Duzgun secim edin!');
     main();
@@ -34,7 +35,7 @@ void loginscreen() {
 
 void productlist() {
   stdout.writeln(
-      'Mehsul Siyahisi : 1- RTX 4080, 2- Intel 13900k - , 3- Ryzen 5600');
+      'Mehsul Siyahisi : 1- RTX 4080, 2- Intel 13900k , 3- Ryzen 5600');
   String selectedProduct = stdin.readLineSync().toString();
   if (selectedProduct == '1') {
     print('Secdiyiniz mehsul: RTX 4080 \n Qiymeti: 1100 AZN ');
@@ -46,7 +47,8 @@ void productlist() {
     print('Secdiyiniz mehsul: Ryzen 5600 \n Qiymeti: 700 AZN ');
     continueShopping(700);
   } else {
-    print(' Duzgun secim eleee!');
+    stdout.writeln('Duzgun secim edin!');
+    productlist();
   }
 }
 
@@ -188,7 +190,8 @@ void bolKart(int amount) {
 
 void directPaymentWithCard(int amount) {
   stdout.writeln('Kart nomrenizi daxil edin:');
-  String cardNumber = stdin.readLineSync().toString();
+  
+ String cardNumber = (stdin.readLineSync().toString());
   if (cardNumber.length != 16) {
     print('Kart nomresini duzgun daxil edin!');
     directPaymentWithCard(amount);
