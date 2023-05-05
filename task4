@@ -1,0 +1,19 @@
+import 'dart:io';
+
+void main() {
+  List regemler = [];
+  stdout.writeln('Istediyiniz ededi daxil edin');
+  var daxilOlunan = stdin.readLineSync();
+  if (int.tryParse(daxilOlunan!) != null) {
+    int regem = int.parse(daxilOlunan);
+    for (int i = 1; i <= regem; i++) {
+      if (regem % i == 0) {
+        regemler.add(i);
+      }
+    }
+    print(regemler);
+  } else {
+    print('Regem daxil edin!');
+  }
+  main();
+}
