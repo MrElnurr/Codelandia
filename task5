@@ -1,0 +1,50 @@
+import 'dart:io';
+import 'dart:math';
+import 'dart:convert';
+
+void main() {
+  stdout.writeln("Xosh geldiniz! Zehmet olmasa seciminizi edin ");
+  stdout.writeln(
+      '1 yazaraq asan, 2 yazaraq orta, 3 yazaraq cetin parol yarada bilersiz');
+  String inputType = stdin.readLineSync().toString();
+  if (inputType == '1') {
+    tier1Pass();
+  } else if (inputType == '2') {
+    tier2Pass();
+  } else if (inputType == '3') {
+    tier3Pass();
+  } else {
+    print('Duzgun secim edin!');
+    main();
+  }
+}
+
+void tier1Pass() {
+  var random = Random();
+  List<int> randomList = List.generate(8, (___) => random.nextInt(8));
+  var password = randomList.join();
+  print('8 simvollu Random kod teyin edildi: $password');
+  main();
+}
+
+void tier2Pass() {
+  var random = Random();
+  List<int> base64 = List.generate(10, (____) => random.nextInt(160));
+  var password = base64UrlEncode(base64).substring(0, 10);
+  print('10 simvollu Random kod teyin edildi: $password');
+  main();
+}
+
+void tier3Pass() {
+  var random = Random();
+  List<int> base64 = List.generate(12, (____) => random.nextInt(256));
+  var password = base64UrlEncode(base64).substring(0, 12);
+  print('12 simvollu Random kod teyin edildi: ${shuffleTier3(password)}');
+  main();
+}
+
+String shuffleTier3(String tier3) {
+  List<String> passTier3 = tier3.split('');
+  passTier3.shuffle();
+  return passTier3.join('');
+}
