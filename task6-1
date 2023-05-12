@@ -1,8 +1,3 @@
-// Task-1
-// tam ədədlərdən ibarət 2 List yaradın
-// bu 2 siyahının elementlərini yeni bir siyahıda yerləşdirin və çap edin.
-// yeni siyahını azdan çoxa doğru sıralayın və çap edin.
-
 main() {
   List list1 = [100, 400, 300, 200];
   List list2 = [700, 500, 600];
