@@ -1,0 +1,17 @@
+// Task - 2
+// daxilində tərarlanan və təkrarlanmayan tam ədədlərin olduğu qarışıq siyahı qurun
+// siyahıda təkrarlanan elementləri silin
+// siyahının ən yüksək dəyərə sahib 2ci elementini tapın
+// siyahını çoxdan aza doğru sıralayın
+
+main() {
+  List<int> listFull = [100, 200, 300, 400, 500, 400, 200];
+  print("Listimiz $listFull");
+  List<int> list2 = listFull.toSet().toList();
+  print('Tekrarlanan elementlerin silindiyi list: $list2');
+  int ikinciEnYuksek = list2[list2.length - 2];
+  print('Ikinci en yuksek deyer $ikinciEnYuksek');
+  list2.sort();
+  var reversedList = list2.reversed.toList();
+  print('Coxdan aza siralanmish list $reversedList');
+}
