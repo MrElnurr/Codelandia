@@ -15,8 +15,8 @@ void main() {
 
   int say = 0;
 
-  for (String produkt in list) {
-    if (produkt.toLowerCase() == 'hp') {
+  for (String product in list) {
+    if (product.toLowerCase() == 'hp') {
       say++;
     }
   }
@@ -42,8 +42,8 @@ void main() {
 
   Map<String, int> mapping = {};
 
-  for (String produkt in list) {
-    String lowerCase = produkt.toLowerCase();
+  for (String product in list) {
+    String lowerCase = product.toLowerCase();
     if (lowerCase == 'asus') {
       mapping[lowerCase] = (mapping[lowerCase] ?? 0) + 1;
     }
