@@ -2,7 +2,7 @@ import 'dart:io';
 import 'task8bankingclass.dart';
 void main() {
   account user =
-      account(userName: "Ash", cardNumber: 1497567891111111, cardBalance: 200);
+      account(userName: "Dokkaebi", cardNumber: 1497567891111111, cardBalance: 200);
   stdout.writeln('Salam, ${user.userName} \n Kart nomreniz ${user.cardNumber}');
   stdout.writeln(
       " Balansiniz: ${user.cardBalance} \n Pul depozit etmek ucun 1-e \n Cixarmaq ucun 2-ye \n  Yeniden melumatlari gostermek ucun 3-e basin");
