@@ -2,7 +2,7 @@ class Car {
   String minik = '';
   String qruzovoy = '';
   void showCar() {
-    print("secdiyiniz mashin tipi $minik");
+    print("secdiyiniz mashin tipi $minik $qruzovoy");
   }
 }
 
